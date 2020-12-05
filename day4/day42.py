@@ -30,7 +30,19 @@ def batchparser(input):
             
 
 def fieldValidator(key, value):
-    return None
+    if key == 'byr':
+        year = int(value)
+        if year >1919 and year < 2003:
+            return True
+        else:
+            return False
+    if key == 'iyr':
+        year = int(value)
+        if year > 2009 and year < 2021:
+            return True
+        else:
+            return False
+
 
 
 if __name__ == "__main__":
