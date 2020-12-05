@@ -37,6 +37,9 @@ def fieldValidator(key, value):
     if key == 'eyr':
         return yearValidator(value, 2020, 2030)
 
+    if key == 'ecl':
+        return eclValidator(value)
+
 
 def yearValidator(year_str, lower, upper):
     year = int(year_str)
@@ -44,6 +47,15 @@ def yearValidator(year_str, lower, upper):
         return True
     else:
         return False
+
+
+
+def eclValidator(value):
+    valid_colors = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']
+    if value in valid_colors:
+        return True
+    return False
+
     
 
 if __name__ == "__main__":
