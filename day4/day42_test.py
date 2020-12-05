@@ -45,7 +45,7 @@ class TestFieldValidation(unittest.TestCase):
     def test_hcl_invalid_ha(self):
         self.assertEqual(fieldValidator('hcl','123abc'), False, 'Invalid')
     def test_ecl_valid(self):
-        self.assertEqual(fieldValidator('ecl','brn'), False, 'Valid')
+        self.assertEqual(fieldValidator('ecl','brn'), True, 'Valid')
     def test_ecl_invalid(self):
         self.assertEqual(fieldValidator('ecl','wat'), False, 'Invalid')
     def test_pid_valid(self):
