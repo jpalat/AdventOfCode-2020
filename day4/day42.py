@@ -4,7 +4,10 @@ def passportValidator(passport):
     valid = True
     for key in required_keys:
         if key in passport:
-            pass
+            if not fieldValidator(key, passport[key]):
+                print('Invalid key:', key, passport[key])
+                return False
+            
         else:
             return False
     return True
@@ -15,7 +18,6 @@ def batchparser(input):
     passport = {}
     for index, line in enumerate(source):
         if line == '\n':
-            print("reset")
             if passport != {}:
                 passports.append(passport)
                 passport = {}
@@ -25,7 +27,6 @@ def batchparser(input):
                 key, value = f.split(':')
                 passport[key] = value
     passports.append(passport)
-    print(passports)
     return passports
             
 
@@ -51,14 +52,19 @@ def yearValidator(year_str, lower, upper):
     return inRange(year, lower, upper)
 
 def inRange(value, lower, upper):
-    if (value > lower and value <= upper):
+    if (value >= lower and value <= upper):
         return True
     else:
         return False
 
 def hgtValidator(fieldValue):
     unit = fieldValue[-2:]
-    measure = int(fieldValue[:-2])
+    
+    m = fieldValue[:-2]
+    if m =='':
+        return False
+    else:
+        measure=int(m)
     if unit == 'cm':
         return inRange(measure, 150, 193)
     if unit == 'in':
@@ -92,10 +98,14 @@ def hclValidator(value):
     
 
 if __name__ == "__main__":
-    fileInput = open('input.txt','r')
-    passports = batchparser(fileInput)
-    count = 0
-    for passport in passports:
-        if passportValidator(passport):
-            count += 1
-    print("Valid Passports:", count)
+    files = ['valid_passports.txt', 'invalid_passports.txt', 'input.txt']
+    for file in files:
+        fileInput = open(file,'r')
+        passports = batchparser(fileInput)
+        print(file, len(passports))
+        count = 0
+        for passport in passports:
+            if passportValidator(passport):
+                count += 1
+        print("# of Passports:", count)
+        fileInput.close()
