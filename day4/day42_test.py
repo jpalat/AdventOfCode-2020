@@ -26,6 +26,10 @@ class TestFieldValidation(unittest.TestCase):
         self.assertEqual(fieldValidator('byr','2002'), True, 'Valid')
     def test_byr_invalid(self):
         self.assertEqual(fieldValidator('byr','2003'), False, 'Invalid')
+    def test_iyr_valid(self):
+        self.assertEqual(fieldValidator('byr','2011'), True, 'Valid')
+    def test_iyr_invalid(self):
+        self.assertEqual(fieldValidator('byr','2003'), False, 'Invalid')
     def test_hgt_valid_in(self):
         self.assertEqual(fieldValidator('hgt','60in'), True, 'Valid')
     def test_hgt_valid_cm(self):
