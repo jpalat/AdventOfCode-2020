@@ -42,6 +42,8 @@ def fieldValidator(key, value):
         return eclValidator(value)
     if key == 'pid':
         return pidValidator(value)
+    if key == 'hcl':
+        return hclValidator(value)
 
 
 def yearValidator(year_str, lower, upper):
@@ -75,6 +77,16 @@ def pidValidator(value):
         return False
     for i in list(value):
         if i not in ['0','1','2','3','4','5','6','7','8','9']:
+            return False
+    return True
+
+def hclValidator(value):
+    valid =  ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
+    hcl = list(value)
+    if hcl[0] != '#':
+        return False
+    for i in hcl[1:]:
+        if i not in valid:
             return False
     return True
     
