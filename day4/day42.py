@@ -31,19 +31,20 @@ def batchparser(input):
 
 def fieldValidator(key, value):
     if key == 'byr':
-        year = int(value)
-        if year >1919 and year < 2003:
-            return True
-        else:
-            return False
+        return yearValidator(value, 1920, 2002)
     if key == 'iyr':
-        year = int(value)
-        if year > 2009 and year < 2021:
-            return True
-        else:
-            return False
+        return yearValidator(value, 2010, 2020)
+    if key == 'eyr':
+        return yearValidator(value, 2020, 2030)
 
 
+def yearValidator(year_str, lower, upper):
+    year = int(year_str)
+    if year >= lower and year <= upper:
+        return True
+    else:
+        return False
+    
 
 if __name__ == "__main__":
     fileInput = open('input.txt','r')
