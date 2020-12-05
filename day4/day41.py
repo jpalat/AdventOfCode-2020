@@ -1,5 +1,13 @@
-def passportValidator():
-    print('Hello')
+def passportValidator(passport):
+    required_keys = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
+    optional_keys = ['cid']
+    valid = True
+    for key in required_keys:
+        if key in passport:
+            pass
+        else:
+            return False
+    return True
 
 def batchparser(input):
     source = list(input)
