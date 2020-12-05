@@ -4,7 +4,7 @@ pos = 0
 count = 0
 for line in f:
     line_array = list(line)
-    if line_array == '.':
+    if line_array[pos] == '.':
         line_array[pos] = 'O'
     else:
         line_array[pos] = 'X'
