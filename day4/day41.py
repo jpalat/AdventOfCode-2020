@@ -34,3 +34,9 @@ def batchparser(input):
 
 if __name__ == "__main__":
     fileInput = open('input.txt','r')
+    passports = batchparser(fileInput)
+    count = 0
+    for passport in passports:
+        if passportValidator(passport):
+            count += 1
+    print("Valid Passports:", count)
