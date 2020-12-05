@@ -9,7 +9,7 @@ class TestNavigator(unittest.TestCase):
         self.f.close()
 
     def test_batchExtractor(self):
-        self.assertEqual(len(batchparser(self.f)), 5, "5 batches")
+        self.assertEqual(len(batchparser(self.f)), 4, "4 batches")
     def test_validPassport(self):
         self.assertEqual(passportValidator([]), True, "Valid")
     def test_invalidPassport(self):
