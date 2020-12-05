@@ -36,18 +36,31 @@ def fieldValidator(key, value):
         return yearValidator(value, 2010, 2020)
     if key == 'eyr':
         return yearValidator(value, 2020, 2030)
-
+    if key == 'hgt':
+        return hgtValidator(value)
     if key == 'ecl':
         return eclValidator(value)
 
 
 def yearValidator(year_str, lower, upper):
     year = int(year_str)
-    if year >= lower and year <= upper:
+    return inRange(year, lower, upper)
+
+def inRange(value, lower, upper):
+    if (value > lower and value <= upper):
         return True
     else:
         return False
 
+def hgtValidator(fieldValue):
+    unit = fieldValue[-2:]
+    measure = int(fieldValue[:-2])
+    if unit == 'cm':
+        return inRange(measure, 150, 193)
+    if unit == 'in':
+        return inRange(measure, 59,76)
+    else:
+        return False
 
 
 def eclValidator(value):
