@@ -40,6 +40,8 @@ def fieldValidator(key, value):
         return hgtValidator(value)
     if key == 'ecl':
         return eclValidator(value)
+    if key == 'pid':
+        return pidValidator(value)
 
 
 def yearValidator(year_str, lower, upper):
@@ -62,13 +64,19 @@ def hgtValidator(fieldValue):
     else:
         return False
 
-
 def eclValidator(value):
     valid_colors = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']
     if value in valid_colors:
         return True
     return False
 
+def pidValidator(value):
+    if len(value) < 9 or len(value) > 9:
+        return False
+    for i in list(value):
+        if i not in ['0','1','2','3','4','5','6','7','8','9']:
+            return False
+    return True
     
 
 if __name__ == "__main__":
