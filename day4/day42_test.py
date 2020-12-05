@@ -52,6 +52,8 @@ class TestFieldValidation(unittest.TestCase):
         self.assertEqual(fieldValidator('pid','000000001'), True, 'Valid')
     def test_pid_invalid(self):
         self.assertEqual(fieldValidator('pid','0123456789'), False, 'Invalid')
+    def test_pid_invalid_nn(self):
+        self.assertEqual(fieldValidator('pid','012E5678'), False, 'Invalid')
  
 if __name__ == "__main__":
     
