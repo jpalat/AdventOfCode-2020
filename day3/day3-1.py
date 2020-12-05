@@ -1,4 +1,4 @@
-f = open('sample.txt')
+f = open('input.txt')
 
 pos = 0
 count = 0
