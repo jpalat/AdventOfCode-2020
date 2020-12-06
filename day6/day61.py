@@ -10,3 +10,13 @@ def getGroups(f):
     batches.append(batch)
     return batches
 
+"""
+Check for the unique total of questions answerd
+"""
+def uniqueGroupAnswers(respondents):
+    overall = set()
+    for x in respondents:
+        answers = list(x)
+        resp = set(answers)
+        overall = overall.union(resp)
+    return overall
