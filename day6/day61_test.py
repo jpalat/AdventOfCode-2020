@@ -1,5 +1,5 @@
 import unittest
-from day61 import getGroups, uniqueGroupAnswers
+from day61 import getGroups, uniqueGroupAnswers, getCommonAnswers
 
 class TestDeclarations(unittest.TestCase):
     
@@ -23,9 +23,19 @@ class TestDeclarations(unittest.TestCase):
         self.assertEqual(len(uniqueGroupAnswers(groups[3])), 1)
         self.assertEqual(len(uniqueGroupAnswers(groups[4])), 1)
 
+class TestDeclarationsPt2(unittest.TestCase):
+    def setUp(self):
+        self.f = open('sample.txt','r')
+    def tearDown(self):
+        self.f.close()
 
-    # def test_(self):
-    #     self.assertEqual()
+    def test_sums(self):
+        groups = getGroups(self.f)
+        self.assertEqual(len(getCommonAnswers(groups[0])), 3)
+        self.assertEqual(len(getCommonAnswers(groups[1])), 0)
+        self.assertEqual(len(getCommonAnswers(groups[2])), 1)
+        self.assertEqual(len(getCommonAnswers(groups[3])), 1)
+        self.assertEqual(len(getCommonAnswers(groups[4])), 1)
 
 
 if __name__ == "__main__":
