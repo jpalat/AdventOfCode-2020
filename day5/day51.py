@@ -32,12 +32,17 @@ if __name__ == "__main__":
     l = list(f)
     l.sort()
     bigseat = 0
+    seats = []
     for index, seat in enumerate(l):
         row, col, seat = seatDecoder(seat.strip())
         print (index, ': ',row, col, seat, bigseat)
         if seat > bigseat:
             bigseat = seat
-        
+        seats.append(seat)
+    seats.sort()
+    seats_total = sum(seats)
+    seats_possible = sum(range(seats[0], seats[-1]+1))
+    my_seat = seats_possible - seats_total
     print("Highest Seat ID:", bigseat)
-        
+    print("My seat", my_seat)
 
