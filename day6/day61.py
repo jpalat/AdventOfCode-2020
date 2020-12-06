@@ -38,6 +38,10 @@ if __name__ == "__main__":
     f = open('input.txt','r')
     groups = getGroups(f)
     response_sum = 0
+    intersection_sum = 0
     for g in groups:
         response_sum = len(uniqueGroupAnswers(g)) + response_sum
-    print("Total: ", response_sum)
+        intersection_sum = len(getCommonAnswers(g)) + intersection_sum
+    
+    print("Total Unique: ", response_sum)
+    print("Total Common: ", intersection_sum)
