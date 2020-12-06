@@ -4,6 +4,7 @@ def getGroups(f):
     for line in f:
         if line == '\n':
             batches.append(batch)
+            batch = []
         else:
             batch.append(line.strip())
     batches.append(batch)
