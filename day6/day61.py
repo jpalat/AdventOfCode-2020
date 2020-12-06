@@ -21,6 +21,19 @@ def uniqueGroupAnswers(respondents):
         overall = overall.union(resp)
     return overall
 
+def getCommonAnswers(respondents):
+    overall = []
+    for x in respondents:
+        answers = list(x)
+        overall.append(set(answers))
+    if len(overall) > 1:
+        common = set.intersection(*overall)
+    else:
+        common = overall[0]
+
+    return common
+
+
 if __name__ == "__main__":
     f = open('input.txt','r')
     groups = getGroups(f)
