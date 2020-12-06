@@ -20,3 +20,11 @@ def uniqueGroupAnswers(respondents):
         resp = set(answers)
         overall = overall.union(resp)
     return overall
+
+if __name__ == "__main__":
+    f = open('input.txt','r')
+    groups = getGroups(f)
+    response_sum = 0
+    for g in groups:
+        response_sum = len(uniqueGroupAnswers(g)) + response_sum
+    print("Total: ", response_sum)
