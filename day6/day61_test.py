@@ -1,5 +1,5 @@
 import unittest
-from day61 import getGroups, sumOfYes
+from day61 import getGroups, uniqueGroupAnswers
 
 class TestDeclarations(unittest.TestCase):
     
@@ -17,11 +17,11 @@ class TestDeclarations(unittest.TestCase):
         self.assertEqual(groups[3], ['a','a','a','a'])
     def test_sums(self):
         groups = getGroups(self.f)
-        self.assertEqual(sumOfYes(groups[0]), 3)
-        self.assertEqual(sumOfYes(groups[1]), 3)
-        self.assertEqual(sumOfYes(groups[2]), 3)
-        self.assertEqual(sumOfYes(groups[3]), 1)
-        self.assertEqual(sumOfYes(groups[4]), 1)
+        self.assertEqual(len(uniqueGroupAnswers(groups[0])), 3)
+        self.assertEqual(len(uniqueGroupAnswers(groups[1])), 3)
+        self.assertEqual(len(uniqueGroupAnswers(groups[2])), 3)
+        self.assertEqual(len(uniqueGroupAnswers(groups[3])), 1)
+        self.assertEqual(len(uniqueGroupAnswers(groups[4])), 1)
 
 
     # def test_(self):
