@@ -1,5 +1,5 @@
 import unittest
-from day61 import 
+from day61 import getGroups
 
 class TestDeclarations(unittest.TestCase):
     
@@ -8,10 +8,10 @@ class TestDeclarations(unittest.TestCase):
     def tearDown(self):
         self.f.close()
 
-    def test_(self):
-        self.assertEqual()
-    def test_(self):
-        self.assertEqual()
+    def test_groups(self):
+        self.assertEqual(len(getGroups(self.f)), 5, "5 groups found.")
+    # def test_(self):
+    #     self.assertEqual()
 
 if __name__ == "__main__":
     unittest.main()
