@@ -9,9 +9,11 @@ class TestLuggageRules(unittest.TestCase):
         self.f.close()
 
     def test_ruleParser(self):
-        self.assertEqual(parseRule('light red bags contain 1 bright white bag, 2 muted yellow bags.'), {'bright white':1, 'muted yellow':2})
-        self.assertEqual(parseRule('faded blue bags contain no other bags.'), {})
-        self.assertEqual(parseRule('bright white bags contain 1 shiny gold bag.'), {'shiny gold':1})
+        self.assertEqual(parseRule('light red bags contain 1 bright white bag, 2 muted yellow bags.'), {'light red': {'bright white':1, 'muted yellow':2}})
+        self.assertEqual(parseRule('faded blue bags contain no other bags.'), {'faded blue':{}})
+        self.assertEqual(parseRule('bright white bags contain 1 shiny gold bag.'), {'bright white': {'shiny gold':1}})
+
+        
 
 
 if __name__ == "__main__":
