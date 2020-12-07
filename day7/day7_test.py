@@ -1,6 +1,6 @@
 
 import unittest
-from day7 import parseRule
+from day7 import parseRule, validate
 
 class TestLuggageRules(unittest.TestCase):
     def setUp(self):
@@ -13,7 +13,8 @@ class TestLuggageRules(unittest.TestCase):
         self.assertEqual(parseRule('faded blue bags contain no other bags.'), {'faded blue':{}})
         self.assertEqual(parseRule('bright white bags contain 1 shiny gold bag.'), {'bright white': {'shiny gold':1}})
 
-        
+    def test_Query(self):
+        self.assertEqual(validate(self.f, 'shiny gold'), 4)
 
 
 if __name__ == "__main__":
