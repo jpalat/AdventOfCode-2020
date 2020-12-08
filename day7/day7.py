@@ -39,3 +39,29 @@ def tailParser(tail):
             qty, mod, bag, _ = tokens
             results.append((qty, mod, bag))
     return results
+
+            
+        
+def validate(rules, query):
+    ruleset = {}
+    for r in rules:
+        rule = parseRule(r)
+        ruleset.update(rule)
+    print([*ruleset])
+    res = deepQuery(ruleset, query)
+    print(res)
+    return len(res)
+
+    
+
+def deepQuery(ruleset, query):
+    results = set()
+    for r in [*ruleset]:
+        if query in ruleset[r].keys():
+            results.add(r)
+            dq = deepQuery(ruleset, r)
+            for item in dq:
+                results.add(item)
+            print(r, 'contains', query)
+            
+    return list(results)
