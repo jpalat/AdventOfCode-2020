@@ -47,9 +47,7 @@ def validate(rules, query):
     for r in rules:
         rule = parseRule(r)
         ruleset.update(rule)
-    print([*ruleset])
     res = deepQuery(ruleset, query)
-    print(res)
     return len(res)
 
 def deepQuery(ruleset, query):
