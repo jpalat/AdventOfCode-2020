@@ -38,4 +38,7 @@ class BootLoader:
                 return self.accumulator
 
             
-            
+if __name__ == "__main__":
+    b = BootLoader('input.txt')
+    print('accumulator :', b.execute())
+
