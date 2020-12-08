@@ -52,8 +52,6 @@ def validate(rules, query):
     print(res)
     return len(res)
 
-    
-
 def deepQuery(ruleset, query):
     results = set()
     for r in [*ruleset]:
@@ -65,3 +63,10 @@ def deepQuery(ruleset, query):
             print(r, 'contains', query)
             
     return list(results)
+
+
+
+if __name__ == "__main__":
+    f = open('input.txt','r')
+    rules = list(f)
+    print('Bags containing Shiny Gold', validate(rules, 'shiny gold'))
