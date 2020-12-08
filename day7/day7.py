@@ -62,8 +62,29 @@ def deepQuery(ruleset, query):
             
     return list(results)
 
-def sumOfBags(ruleset, query):
-    return 0
+def sumOfBags(rules, query):
+    ruleset = {}
+    for r in rules:
+        rule = parseRule(r)
+        ruleset.update(rule)
+    print('rs:', ruleset)
+    result = deepSum(ruleset, query) -1
+    return result
+
+def deepSum(ruleset, query):
+    current_bag = 1
+    if ruleset[query] == {}:
+        return 1
+    else:
+        total = 0
+        for r in ruleset[query]:
+            print(query, ' contains ', ruleset[query][r], 'bags')
+            subBags = deepSum(ruleset, r) 
+            
+            total = current_bag + (subBags * ruleset[query][r])
+    return total
+    
+
 
 if __name__ == "__main__":
     f = open('input.txt','r')
