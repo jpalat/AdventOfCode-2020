@@ -5,9 +5,13 @@ class BootLoader:
         f = open(filepath,'r')
         self.program = list(f)
         f.close()
+        self.visted = []
 
     def parseRule(self, index):
         operator, operand_raw  = self.program[index].strip().split(" ")
         operand = int(operand_raw)
         return (operator, operand)
 
+    def execute(self):
+        return 0
+            
