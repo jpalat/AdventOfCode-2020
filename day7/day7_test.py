@@ -14,7 +14,8 @@ class TestLuggageRules(unittest.TestCase):
         self.assertEqual(parseRule('bright white bags contain 1 shiny gold bag.'), {'bright white': {'shiny gold':1}})
 
     def test_Query(self):
-        self.assertEqual(validate(self.f, 'shiny gold'), 4)
+        rules = list(self.f)
+        self.assertEqual(validate(rules, 'shiny gold'), 4)
 
 
 if __name__ == "__main__":
