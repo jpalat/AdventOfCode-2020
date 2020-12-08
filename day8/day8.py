@@ -4,6 +4,7 @@ class BootLoader:
         self.accumulator = 0
         f = open(filepath,'r')
         self.program = list(f)
+        f.close()
 
     def parseRule(self, index):
         operator, operand_raw  = self.program[index].strip().split(" ")
