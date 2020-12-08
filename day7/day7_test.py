@@ -1,6 +1,6 @@
 
 import unittest
-from day7 import parseRule, validate
+from day7 import parseRule, validate, sumOfBags
 
 class TestLuggageRules(unittest.TestCase):
     def setUp(self):
@@ -17,6 +17,15 @@ class TestLuggageRules(unittest.TestCase):
         rules = list(self.f)
         self.assertEqual(validate(rules, 'shiny gold'), 4)
 
+class TestLuggageRulesPt2(unittest.TestCase):
+    def setUp(self):
+        self.f = open('sample2.txt','r')
+    def tearDown(self):
+        self.f.close()
+
+    def test_SumOfBags(self):
+        rules = list(self.f)
+        self.assertEqual(sumOfBags(rules, 'shiny gold'), 126)
 
 if __name__ == "__main__":
     unittest.main()

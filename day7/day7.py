@@ -62,7 +62,8 @@ def deepQuery(ruleset, query):
             
     return list(results)
 
-
+def sumOfBags(ruleset, query):
+    return 0
 
 if __name__ == "__main__":
     f = open('input.txt','r')
