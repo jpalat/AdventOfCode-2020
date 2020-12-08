@@ -5,7 +5,7 @@ class BootLoader:
         f = open(filepath,'r')
         self.program = list(f)
         f.close()
-        self.visted = []
+        self.visited = []
 
     def parseRule(self, index):
         operator, operand_raw  = self.program[index].strip().split(" ")
@@ -13,5 +13,29 @@ class BootLoader:
         return (operator, operand)
 
     def execute(self):
-        return 0
+        index = 0
+        halt = False
+        while(halt == False):
+            operator, operand = self.parseRule(index)
+            self.visited.append(index)
+            if operator == 'nop':
+                index = index + 1
+            else:
+                if operator == 'acc':
+                    self.accumulator += operand
+                    index = index + 1
+                else:
+                    if operator == 'jmp':
+                        index = index + operand
+                    else:
+                        print("Unknown opp -")
+                        print(operator)
+                        exit(0)
+        
+            if index in self.visited:
+                Halt = True
+                print('exiting')
+                return self.accumulator
+
+            
             
