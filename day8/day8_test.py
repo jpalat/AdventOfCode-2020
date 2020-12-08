@@ -1,17 +1,19 @@
 import unittest
-from day8 import Bootloader
+from day8 import BootLoader
 
 class TestBootloader(unittest.TestCase):
 
     def test_Parser(self):
-        b = Bootloader('sample.txt')
+        b = BootLoader('sample.txt')
         
         self.assertEqual(b.parseRule(0), ('nop', 0))
-        self.assertEqual(b.parseRule(6), ('acc', -99))
-        self.assertEqual(b.parseRule(8), ('jmp', -4))
+        self.assertEqual(b.parseRule(5), ('acc', -99))
+        self.assertEqual(b.parseRule(7), ('jmp', -4))
 
     
-
+if __name__ == "__main__":
+    
+    unittest.main()
     
     
     
