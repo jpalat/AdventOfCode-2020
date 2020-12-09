@@ -13,7 +13,7 @@ class TestDeclarations(unittest.TestCase):
 
     def test_continuous(self):
         data = list(self.f)
-        self.assertEqual(find(data, 127), [15,25,47,40])
+        self.assertEqual(findContiguous(data, 127), [15,25,47,40])
     
 
 if __name__ == "__main__":
