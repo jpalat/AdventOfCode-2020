@@ -76,4 +76,5 @@ class BootLoader:
 if __name__ == "__main__":
     b = BootLoader('input.txt')
     print('accumulator :', b.execute())
+    print('mutator: ',b.mutate())
 
