@@ -1,5 +1,5 @@
 import unittest
-from day9 import find
+from day9 import *
 class TestDeclarations(unittest.TestCase):
     
     def setUp(self):
@@ -10,7 +10,11 @@ class TestDeclarations(unittest.TestCase):
     def test_find(self):
         data = list(self.f)
         self.assertEqual(find(data, 5),127)
-   
+
+    def test_continuous(self):
+        data = list(self.f)
+        self.assertEqual(find(data, 127), [15,25,47,40])
+    
 
 if __name__ == "__main__":
     unittest.main()
