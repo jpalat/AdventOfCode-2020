@@ -16,7 +16,7 @@ class TestBootloader(unittest.TestCase):
 
     def test_unHalt(self):
         b = BootLoader('sample.txt')
-        self.assertEqual(b.execute(), 8)
+        self.assertEqual(b.mutate(), 8)
     
 if __name__ == "__main__":
     
