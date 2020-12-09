@@ -4,7 +4,7 @@ def find(input, window):
     start = window 
     for i in range(start, len(data)):
         addSlice = slice(i - window, i,1)
-        print(data[i], data[addSlice])
+        # print(data[i], data[addSlice])
         if checkrange(data[i], data[addSlice]) == False:
             return data[i]
     return 0
@@ -21,3 +21,8 @@ def checkrange(target, addends):
             result = True
             return result
     return result
+
+if __name__ == "__main__":
+    f = open('input.txt','r')
+    data = list(f)
+    print('Weakness:', find(data, 25))
