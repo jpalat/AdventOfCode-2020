@@ -29,21 +29,20 @@ Part 2.
 '''
 def findContiguous(input, target):
     data = parseData(input)
-    for index, value in enumerate(data):
-        sum = value
+    for index, _ in enumerate(data):
+        found = False
         start = index
-        pointer = start
-        res = []
-        while sum < target:
-            sum += data[pointer]
-            pointer += 1
-            res.append(data[pointer])
-            print(index, value, sum, res)
-        if sum == target:
-            return res
-    return []
-
-
+        end = index+1
+        while not found:
+            subset = data[slice(start, end)]
+            # print('start', start, 'end', end, 'sub:',subset)
+            end +=1
+            subsum = sum(subset)
+            found = subsum == target
+            if subsum == target:
+                return subset
+            if end > len(data) or subsum > target:
+                break
 
 if __name__ == "__main__":
     f = open('input.txt','r')
