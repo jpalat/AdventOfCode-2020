@@ -47,4 +47,11 @@ def findContiguous(input, target):
 if __name__ == "__main__":
     f = open('input.txt','r')
     data = list(f)
-    print('Weakness:', find(data, 25))
+    weakness_p1 = find(data, 25)
+    print('Weakness:', weakness_p1)
+    newset = findContiguous(data, weakness_p1)
+    print(newset)
+    weakness = max(newset) + min(newset)
+    print('Weakness: (pt2):', weakness)
+
+    
