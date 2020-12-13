@@ -1,6 +1,5 @@
 import unittest
-from day10 import chain
-class TestDeclarations(unittest.TestCase):
+class TestChain(unittest.TestCase):
     
 
     def test_chain(self):
