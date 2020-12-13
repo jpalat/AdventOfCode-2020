@@ -15,6 +15,9 @@ def chain(adapters):
     print (adapter_list)
     return joltage
 
+def arrangements(data):
+    return 0
+
 if __name__ == "__main__":
     f = open('input.txt','r')
     result = chain(f)
