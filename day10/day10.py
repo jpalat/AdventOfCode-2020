@@ -1,0 +1,2 @@
+def chain(adapters):
+    return {}
