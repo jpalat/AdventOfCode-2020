@@ -14,3 +14,8 @@ def chain(adapters):
         last = i
     print (adapter_list)
     return joltage
+
+if __name__ == "__main__":
+    f = open('input.txt','r')
+    result = chain(f)
+    print('\n',result, result['1 jolt'] * result['3 jolts'])
