@@ -8,11 +8,10 @@ def model_seats(input):
         line = list(l.strip())
         floor_plan.append(line)
     print('Start')
-    print('mutate1')
-    floor_plan, delta = mutate(floor_plan)
-    print('mutate2')
-    floor_plan, delta = mutate(floor_plan)
-    return 0
+    delta = 1
+    while delta > 0:
+        floor_plan, delta = mutate(floor_plan)
+    return count_passengers(floor_plan)
 
 def print_floor(floor):
     for i in floor:
@@ -20,6 +19,13 @@ def print_floor(floor):
             print(j, end =" ")
         print()
 
+def count_passengers(floor):
+    count = 0
+    for row in floor:
+        for seat in row:
+            if seat == 'L':
+                count += 1
+    return count
 
 def mutate(new_thing):
     orig = copy.deepcopy(new_thing)
@@ -105,5 +111,5 @@ def count_neighbors(row, col, floor):
     tr = check_tr(row, col, floor)
     up = check_up(row, col, floor)
     sum = tl + up + tr + le + ri + bl + dn + br
-    print(row, col, tl , up , tr , le , ri , bl , dn , br, sum)
+    # print(row, col, tl , up , tr , le , ri , bl , dn , br, sum)
     return sum
