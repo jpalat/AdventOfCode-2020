@@ -1,3 +1,5 @@
+import copy
+
 def model_seats(input):
     floor = list(input)
     floor_plan = []
@@ -5,27 +7,33 @@ def model_seats(input):
     for l in floor:
         line = list(l.strip())
         floor_plan.append(line)
-    mutate(floor_plan)
-    print('model')
-    print_floor(floor_plan)
+    print('Start')
+    print('mutate1')
+    floor_plan, delta = mutate(floor_plan)
+    print('mutate2')
+    floor_plan, delta = mutate(floor_plan)
     return 0
 
 def print_floor(floor):
     for i in floor:
         print(i)
 
-def mutate(floor_plan):
+def mutate(new_thing):
+    orig = copy.deepcopy(new_thing)
+    floor_plan = new_thing
     delta = 0
-    for row, c in enumerate(floor_plan):
+    for row, c in enumerate(orig):
+        # print('ccc-> ', row ,c)
         for column, seat in enumerate(c):
-            print('row, column, seat:', row, column, seat)
+            # print('row, column, seat:', row, column, seat)
             if seat == 'L':
-                print('bingo!')
                 floor_plan[row][column] = '#'
                 delta += 1
-            
-    print('mutate')
-    print_floor(floor_plan)
+            if seat == '#':
+                if count_neighbors(row, column, orig) > 3:
+                    floor_plan[row][column] = 'L'
+                    delta += 1
+    return floor_plan, delta
 
 def check_left(row, col, floor):
     if col == 0:
@@ -85,12 +93,14 @@ def check_br(row, col, floor):
 
 def count_neighbors(row, col, floor):
     sum = 0
-    sum += check_bl(row, col, floor)
-    sum += check_br(row, col, floor)
-    sum += check_down(row, col, floor)
-    sum += check_left(row, col, floor)
-    sum += check_right(row, col, floor)
-    sum += check_tl(row, col, floor)
-    sum += check_tr(row, col, floor)
-    sum += check_up(row, col, floor)
+    bl = check_bl(row, col, floor)
+    br = check_br(row, col, floor)
+    dn = check_down(row, col, floor)
+    le = check_left(row, col, floor)
+    ri = check_right(row, col, floor)
+    tl = check_tl(row, col, floor)
+    tr = check_tr(row, col, floor)
+    up = check_up(row, col, floor)
+    sum = tl + up + tr + le + ri + bl + dn + br
+    print(row, col, tl , up , tr , le , ri , bl , dn , br, sum)
     return sum
