@@ -87,14 +87,14 @@ def check_tr(row, col, floor):
     return 0
 
 def check_bl(row, col, floor):
-    if row == len(floor[row])-1 or col == 0: 
+    if row == len(floor)-1 or col == 0: 
         return 0
     if floor[row + 1][col - 1] == '#':
         return 1
     return 0
 
 def check_br(row, col, floor):
-    if row == len(floor[row])-1 or col == len(floor[row]) -1: 
+    if row == len(floor) -1 or col == len(floor[row]) -1: 
         return 0
     if floor[row + 1][col + 1] == '#':
         return 1
@@ -113,3 +113,7 @@ def count_neighbors(row, col, floor):
     sum = tl + up + tr + le + ri + bl + dn + br
     # print(row, col, tl , up , tr , le , ri , bl , dn , br, sum)
     return sum
+
+if __name__ == "__main__":
+    f = open('input.txt','r')
+    print('seats:', model_seats(f))
