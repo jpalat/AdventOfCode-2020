@@ -82,3 +82,6 @@ def check_br(row, col, floor):
     if floor[row + 1][col + 1] == '#':
         return 1
     return 0
+
+def count_neighbors(row, col, floor):
+    return -1

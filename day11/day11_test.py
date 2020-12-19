@@ -54,5 +54,10 @@ class TestRules(unittest.TestCase):
         self.assertEqual(check_br(0, 2, self.floor), 0)
         self.assertEqual(check_br(2, 1, self.floor), 0)
 
+    def testNeighbor_count(self):
+        self.assertEqual(count_neighbors(1, 1, self.floor), 4)
+        self.assertEqual(count_neighbors(0, 1, self.floor), 3)
+        self.assertEqual(count_neighbors(2, 1, self.floor), 4)
+
 if __name__ == "__main__":
     unittest.main()
