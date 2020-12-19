@@ -70,7 +70,11 @@ def check_tr(row, col, floor):
     return 0
 
 def check_bl(row, col, floor):
-    return -1
+    if row == len(floor[row])-1 or col == 0: 
+        return 0
+    if floor[row + 1][col - 1] == '#':
+        return 1
+    return 0
 
 def check_br(row, col, floor):
     return -1
