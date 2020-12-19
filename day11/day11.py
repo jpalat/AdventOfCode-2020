@@ -23,7 +23,7 @@ def count_passengers(floor):
     count = 0
     for row in floor:
         for seat in row:
-            if seat == 'L':
+            if seat == '#':
                 count += 1
     return count
 
