@@ -32,6 +32,21 @@ def build_matrix(adapter_list):
         print("\n",r)
     return adjmatrix
 
+def build_graph(data_list): 
+    graph = {}
+    for index, value in enumerate(data_list):
+        children = []
+        for subindex, subvalue in enumerate(data_list):
+            
+            diff =  subvalue - value
+            # print('diff', value, subvalue, diff)
+            if diff < 4 and diff >0:
+                children.append(subvalue)
+            else:
+                pass
+        graph[value] = children
+    # print('graph', graph)
+    return graph
 if __name__ == "__main__":
     f = open('input.txt','r')
     result = chain(f)
