@@ -14,6 +14,33 @@ def chain(adapters):
     return joltage
 
 def arrangements(data):
+    adapter_list = [0]
+    adapter_list = adapter_list + sorted(list(map(lambda x: int(x), data)))
+    adapter_list.append(max(adapter_list)+ 3)
+    print("Adapter List", adapter_list)
+    matrix, graph = build_datastructures(adapter_list)
+    nodes = reversed(graph.keys())
+    path_sum = 0
+    children = {}
+    for node in nodes:
+        kids = len(graph[node])
+        if kids == 0:
+            children[node] = 1
+        else:
+            sum = 0
+            for i in graph[node]:
+                sum = sum + children[i]
+            children[node] = sum
+
+    return children[0]
+
+
+def build_datastructures(data):
+    # matrix = build_matrix(data)
+    matrix =[]
+    graph = build_graph(data)
+    return matrix, graph
+    
 def build_matrix(adapter_list):
     adjmatrix = [[0 for x in range(len(adapter_list))] for y in range(len(adapter_list))]
         
@@ -47,6 +74,7 @@ def build_graph(data_list):
         graph[value] = children
     # print('graph', graph)
     return graph
+    
 if __name__ == "__main__":
     f = open('input.txt','r')
     result = chain(f)
