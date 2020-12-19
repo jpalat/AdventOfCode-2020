@@ -35,7 +35,11 @@ def check_left(row, col, floor):
     return 0
 
 def check_right(row, col, floor):
-    return -1
+    if col == len(floor[row])-1:
+        return 0
+    if floor[row][col + 1] == '#':
+        return 1
+    return 0
 
 def check_up(row, col, floor):
     return -1
