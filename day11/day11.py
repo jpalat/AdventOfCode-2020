@@ -28,7 +28,11 @@ def mutate(floor_plan):
     print_floor(floor_plan)
 
 def check_left(row, col, floor):
-    return -1
+    if col == 0:
+        return 0
+    if floor[row][col - 1] == '#':
+        return 1
+    return 0
 
 def check_right(row, col, floor):
     return -1
