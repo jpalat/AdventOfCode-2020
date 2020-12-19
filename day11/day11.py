@@ -16,7 +16,10 @@ def model_seats(input):
 
 def print_floor(floor):
     for i in floor:
-        print(i)
+        for j in i:
+            print(j, end =" ")
+        print()
+
 
 def mutate(new_thing):
     orig = copy.deepcopy(new_thing)
