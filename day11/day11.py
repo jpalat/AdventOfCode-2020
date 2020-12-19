@@ -26,3 +26,9 @@ def mutate(floor_plan):
             
     print('mutate')
     print_floor(floor_plan)
+
+def check_left(row, col, floor):
+    return -1
+
+def check_right(row, col, floor):
+    return -1
