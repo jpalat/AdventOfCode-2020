@@ -24,7 +24,13 @@ class TestRules(unittest.TestCase):
         self.assertEqual(check_right(1,2,self.floor), 0)
         self.assertEqual(check_right(0,0,self.floor), 0)    
 
-
-
+    def testUD(self):
+        self.assertEqual(check_up(0,1,self.floor), 0)
+        self.assertEqual(check_up(1,1,self.floor), 0)
+        self.assertEqual(check_up(1,2,self.floor), 1)
+        self.assertEqual(check_down(0,1,self.floor), 1)
+        self.assertEqual(check_down(2,2,self.floor), 0)
+        self.assertEqual(check_down(0,0,self.floor), 0)
+        self.assertEqual(check_down(0,1,self.floor), 1)
 if __name__ == "__main__":
     unittest.main()

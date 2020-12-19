@@ -32,3 +32,9 @@ def check_left(row, col, floor):
 
 def check_right(row, col, floor):
     return -1
+
+def check_up(row, col, floor):
+    return -1
+
+def check_down(row, col, floor):
+    return -1
