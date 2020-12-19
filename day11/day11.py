@@ -84,4 +84,13 @@ def check_br(row, col, floor):
     return 0
 
 def count_neighbors(row, col, floor):
-    return -1
+    sum = 0
+    sum += check_bl(row, col, floor)
+    sum += check_br(row, col, floor)
+    sum += check_down(row, col, floor)
+    sum += check_left(row, col, floor)
+    sum += check_right(row, col, floor)
+    sum += check_tl(row, col, floor)
+    sum += check_tr(row, col, floor)
+    sum += check_up(row, col, floor)
+    return sum
