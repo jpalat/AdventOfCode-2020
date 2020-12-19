@@ -74,8 +74,10 @@ def build_graph(data_list):
         graph[value] = children
     # print('graph', graph)
     return graph
-    
+
 if __name__ == "__main__":
     f = open('input.txt','r')
-    result = chain(f)
+    data = list(f)
+    result = chain(data)
     print('\n',result, result['1 jolt'] * result['3 jolts'])
+    print('Combos:', arrangements(data))
