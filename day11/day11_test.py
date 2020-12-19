@@ -32,5 +32,27 @@ class TestRules(unittest.TestCase):
         self.assertEqual(check_down(2,2,self.floor), 0)
         self.assertEqual(check_down(0,0,self.floor), 0)
         self.assertEqual(check_down(0,1,self.floor), 1)
+ 
+    def testTopDiag(self):
+        self.assertEqual(check_tl(2, 2, self.floor), 1)
+        self.assertEqual(check_tl(1, 2, self.floor), 0)
+        self.assertEqual(check_tl(0, 2, self.floor), 0)
+        self.assertEqual(check_tl(0, 0, self.floor), 0)
+        self.assertEqual(check_tr(2, 1, self.floor), 1)
+        self.assertEqual(check_tr(0, 1, self.floor), 0)
+        self.assertEqual(check_tr(0, 1, self.floor), 0)
+        self.assertEqual(check_t4(1, 2, self.floor), 0)
+
+
+    def testBottomDiag(self):
+        self.assertEqual(check_bl(0, 1, self.floor), 0)
+        self.assertEqual(check_bl(0, 2, self.floor), 1)
+        self.assertEqual(check_bl(2, 2, self.floor), 0)
+        self.assertEqual(check_bl(0, 0, self.floor), 0)
+        self.assertEqual(check_br(0, 0, self.floor), 1)
+        self.assertEqual(check_br(1, 0, self.floor), 0)
+        self.assertEqual(check_br(0, 2, self.floor), 0)
+        self.assertEqual(check_br(2, 1, self.floor), 0)
+
 if __name__ == "__main__":
     unittest.main()
