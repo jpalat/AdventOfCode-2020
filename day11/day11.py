@@ -42,7 +42,11 @@ def check_right(row, col, floor):
     return 0
 
 def check_up(row, col, floor):
-    return -1
+    if row == 0:
+        return 0
+    if floor[row -1][col] == '#':
+        return 1
+    return 0
 
 def check_down(row, col, floor):
     return -1
