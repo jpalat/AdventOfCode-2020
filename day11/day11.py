@@ -29,7 +29,7 @@ def mutate(new_thing):
         # print('ccc-> ', row ,c)
         for column, seat in enumerate(c):
             # print('row, column, seat:', row, column, seat)
-            if seat == 'L':
+            if seat == 'L' and count_neighbors(row, column, orig) < 1:
                 floor_plan[row][column] = '#'
                 delta += 1
             if seat == '#':
