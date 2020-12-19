@@ -5,4 +5,10 @@ def model_seats(input):
     for l in floor:
         line = list(l.strip())
         floor_plan.append(line)
+    print('model')
+    print_floor(floor_plan)
     return 0
+
+def print_floor(floor):
+    for i in floor:
+        print(i)
