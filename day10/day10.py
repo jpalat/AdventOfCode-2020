@@ -14,7 +14,23 @@ def chain(adapters):
     return joltage
 
 def arrangements(data):
-    return 0
+def build_matrix(adapter_list):
+    adjmatrix = [[0 for x in range(len(adapter_list))] for y in range(len(adapter_list))]
+        
+    for index, value in enumerate(adapter_list):
+        
+        for row_index, current in enumerate(adapter_list[slice(index)]):
+            diff = abs(current - value)
+            print(diff)
+            if diff < 4 and diff > 0:
+                print("index", index, "value", value)
+                print("r_index", row_index, "value", current)
+                adjmatrix[index][row_index] = 1
+    print("\n adj", adjmatrix)
+
+    for r in adjmatrix:
+        print("\n",r)
+    return adjmatrix
 
 if __name__ == "__main__":
     f = open('input.txt','r')
