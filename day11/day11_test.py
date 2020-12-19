@@ -41,7 +41,7 @@ class TestRules(unittest.TestCase):
         self.assertEqual(check_tr(2, 1, self.floor), 1)
         self.assertEqual(check_tr(0, 1, self.floor), 0)
         self.assertEqual(check_tr(0, 1, self.floor), 0)
-        self.assertEqual(check_t4(1, 2, self.floor), 0)
+        self.assertEqual(check_tr(1, 2, self.floor), 0)
 
 
     def testBottomDiag(self):
