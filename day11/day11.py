@@ -127,6 +127,7 @@ def count_neighbors2(row, col, floor):
     sum = tl + up + tr + le + ri + bl + dn + br
     print(row, col,'\n', tl , up , tr ,'\n', le , 'L', ri ,'\n', bl , dn , br, sum)
     return sum
+
 def check_left2(row, col, floor):
     if col == 0:
         return 0
@@ -164,7 +165,6 @@ def check_down2(row, col, floor):
     if row == len(floor) -1:
         return 0
     for r in range(row+1, edge):
-        print('r', r, floor[r][col])
         if floor[r][col] == '#':
             return 1
         if floor[r][col] == 'L':
@@ -185,6 +185,8 @@ def check_tl2(row, col, floor):
             return 0
         if floor[r][c] == '#':
             return 1
+        if floor[r][c] == 'L':
+            return 0
     return 0
 
 def check_tr2(row, col, floor):
@@ -197,11 +199,12 @@ def check_tr2(row, col, floor):
     for s in range(1, steps):
         r = row - s
         c = col + s
-        print('r, c', r, c, floor[r][c])
         if r < 0 or c > right_edge - 1 : 
             return 0
         if floor[r][c] == '#':
             return 1
+        if floor[r][c] == 'L':
+            return 0
         print('no luck')
     return 0
 
@@ -244,6 +247,7 @@ def check_br2(row, col, floor):
             return 0
         print('br, nl')
     return 0
+
 def intersect(origin_row, origin_col, dest_row, dest_col):
     row_distance = abs(origin_row - dest_row)
     col_distance = abs(origin_col - dest_col)
