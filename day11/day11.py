@@ -170,6 +170,50 @@ def check_down2(row, col, floor):
         if floor[r][col] == 'L':
             return 0
     return 0
+
+def check_tl2(row, col, floor):
+    if row == 0 or col == 0: 
+        return 0
+    steps = intersect(row, col, 0, 0)
+    print('steps', steps)
+
+    for s in range(1, steps):
+        r = row - s
+        c = col - s
+        print('r, c', r, c, floor[r][c])
+        if r == 0 or c == 0: 
+            return 0
+        if floor[r][c] == '#':
+            return 1
+    return 0
+
+def check_tr2(row, col, floor):
+    print('TR')
+    right_edge = len(floor[row])
+    if row == 0 or col == right_edge -1: 
+        return 0
+    steps = intersect(row, col, right_edge, 0) + 1
+    print('steps', steps)
+    for s in range(1, steps):
+        r = row - s
+        c = col + s
+        print('r, c', r, c, floor[r][c])
+        if r < 0 or c > right_edge - 1 : 
+            return 0
+        if floor[r][c] == '#':
+            return 1
+        print('no luck')
+    return 0
+
+def intersect(origin_row, origin_col, dest_row, dest_col):
+    row_distance = abs(origin_row - dest_row)
+    col_distance = abs(origin_col - dest_col)
+    print('intersect', origin_row, origin_col, dest_row, dest_col, row_distance, col_distance)
+    if row_distance < col_distance:
+        return col_distance
+    else:
+        return row_distance
+
 if __name__ == "__main__":
     f = open('input.txt','r')
     print('seats:', model_seats(f))
