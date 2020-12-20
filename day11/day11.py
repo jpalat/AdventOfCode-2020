@@ -127,6 +127,16 @@ def count_neighbors2(row, col, floor):
     sum = tl + up + tr + le + ri + bl + dn + br
     print(row, col,'\n', tl , up , tr ,'\n', le , 'L', ri ,'\n', bl , dn , br, sum)
     return sum
+def check_left2(row, col, floor):
+    if col == 0:
+        return 0
+    for c in range(col -1, -1, -1):
+        print('c',c, floor[row][c])
+        if floor[row][c] == '#':
+            return 1
+        if floor[row][c] == 'L':
+            return 0
+    return 0
 if __name__ == "__main__":
     f = open('input.txt','r')
     print('seats:', model_seats(f))
