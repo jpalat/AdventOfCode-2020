@@ -59,5 +59,33 @@ class TestRules(unittest.TestCase):
         self.assertEqual(count_neighbors(0, 1, self.floor), 3)
         self.assertEqual(count_neighbors(2, 1, self.floor), 4)
 
+class TestPt2Rules(unittest.TestCase):
+    def setUp(self):
+        self.full = open('sample_p21.txt','r')
+        self.empty = open('sample_p22.txt','r')
+    def tearDown(self):
+        self.full.close()
+        self.empty.close()
+
+    def test_full(self):
+        floor = list(self.full)
+        floor_plan = []
+        for l in floor:
+            line = list(l.strip())
+            floor_plan.append(line)
+
+        self.assertEqual(floor_plan[4][3] == 'L', True)
+        self.assertEqual(count_neighbors2(4, 3, floor_plan), 8)
+    
+    def test_empty(self):
+        floor = list(self.empty)
+        floor_plan = []
+        for l in floor:
+            line = list(l.strip())
+            floor_plan.append(line)
+
+        self.assertEqual(floor_plan[3][3] == 'L', True)
+        self.assertEqual(count_neighbors2(4, 3, floor_plan), 0)
+
 if __name__ == "__main__":
     unittest.main()
