@@ -137,6 +137,16 @@ def check_left2(row, col, floor):
         if floor[row][c] == 'L':
             return 0
     return 0
+def check_right2(row, col, floor):
+    edge = len(floor[row])
+    if col == edge:
+        return 0
+    for c in range(col+1, edge):
+        if floor[row][c] == '#':
+            return 1
+        if floor[row][c] == 'L':
+            return 0
+    return 0
 if __name__ == "__main__":
     f = open('input.txt','r')
     print('seats:', model_seats(f))
