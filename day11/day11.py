@@ -137,6 +137,7 @@ def check_left2(row, col, floor):
         if floor[row][c] == 'L':
             return 0
     return 0
+
 def check_right2(row, col, floor):
     edge = len(floor[row])
     if col == edge:
@@ -145,6 +146,28 @@ def check_right2(row, col, floor):
         if floor[row][c] == '#':
             return 1
         if floor[row][c] == 'L':
+            return 0
+    return 0
+
+def check_up2(row, col, floor):
+    if row == 0:
+        return 0
+    for r in range(row -1 , 0, -1):
+        if floor[r][col] == '#':
+            return 1
+        if floor[r][col] == 'L':
+            return 0
+    return 0
+
+def check_down2(row, col, floor):
+    edge = len(floor)
+    if row == len(floor) -1:
+        return 0
+    for r in range(row+1, edge):
+        print('r', r, floor[r][col])
+        if floor[r][col] == '#':
+            return 1
+        if floor[r][col] == 'L':
             return 0
     return 0
 if __name__ == "__main__":
