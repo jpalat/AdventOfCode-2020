@@ -68,24 +68,28 @@ class TestPt2Rules(unittest.TestCase):
         self.empty.close()
 
     def test_full(self):
+        print('TEST Full')
         floor = list(self.full)
         floor_plan = []
         for l in floor:
             line = list(l.strip())
             floor_plan.append(line)
+        print_floor(floor_plan)
 
         self.assertEqual(floor_plan[4][3] == 'L', True)
         self.assertEqual(count_neighbors2(4, 3, floor_plan), 8)
     
     def test_empty(self):
+        print('TEST EMPTY')
         floor = list(self.empty)
         floor_plan = []
         for l in floor:
             line = list(l.strip())
             floor_plan.append(line)
+        print_floor(floor_plan)
 
         self.assertEqual(floor_plan[3][3] == 'L', True)
-        self.assertEqual(count_neighbors2(4, 3, floor_plan), 0)
+        self.assertEqual(count_neighbors2(3, 3, floor_plan), 0)
 
 if __name__ == "__main__":
     unittest.main()
