@@ -205,6 +205,45 @@ def check_tr2(row, col, floor):
         print('no luck')
     return 0
 
+def check_bl2(row, col, floor):
+    print('BL')
+    bottom = len(floor)-1
+    if row == bottom or col == 0: 
+        return 0
+    steps = intersect(row, col, 0, bottom) + 1
+    print('steps', steps)
+    for s in range(1, steps):
+        r = row + s
+        c = col - s
+        print('r, c', r, c, floor[r][c])
+        if r > bottom or c < 0:
+            return 0
+        if floor[r][c] == '#':
+            return 1
+        if floor[r][c] == 'L':
+            return 0
+    return 0
+
+def check_br2(row, col, floor):
+    bottom = len(floor)
+    right_edge = len(floor[row])
+    print('BR', bottom, right_edge)
+    if row == bottom -1 or row == right_edge -1: 
+        return 0
+    steps = intersect(row, col, right_edge, bottom) 
+    print('steps', steps)
+    for s in range(1, steps):
+        r = row + s
+        c = col + s
+        print('r, c', r, c, floor[r][c])
+        if r > bottom or c < 0:
+            return 0
+        if floor[r][c] == '#':
+            return 1
+        if floor[r][c] == 'L':
+            return 0
+        print('br, nl')
+    return 0
 def intersect(origin_row, origin_col, dest_row, dest_col):
     row_distance = abs(origin_row - dest_row)
     col_distance = abs(origin_col - dest_col)
