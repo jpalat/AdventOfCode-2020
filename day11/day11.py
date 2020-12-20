@@ -114,6 +114,19 @@ def count_neighbors(row, col, floor):
     # print(row, col, tl , up , tr , le , ri , bl , dn , br, sum)
     return sum
 
+def count_neighbors2(row, col, floor):
+    sum = 0
+    bl = check_bl2(row, col, floor)
+    br = check_br2(row, col, floor)
+    dn = check_down2(row, col, floor)
+    le = check_left2(row, col, floor)
+    ri = check_right2(row, col, floor)
+    tl = check_tl2(row, col, floor)
+    tr = check_tr2(row, col, floor)
+    up = check_up2(row, col, floor)
+    sum = tl + up + tr + le + ri + bl + dn + br
+    print(row, col,'\n', tl , up , tr ,'\n', le , 'L', ri ,'\n', bl , dn , br, sum)
+    return sum
 if __name__ == "__main__":
     f = open('input.txt','r')
     print('seats:', model_seats(f))
