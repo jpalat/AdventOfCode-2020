@@ -91,5 +91,23 @@ class TestPt2Rules(unittest.TestCase):
         self.assertEqual(floor_plan[3][3] == 'L', True)
         self.assertEqual(count_neighbors2(3, 3, floor_plan), 0)
 
+    def test_examples(self):
+        print("EXAMPLES")
+        f = open('debug.txt','r')
+        floor = list(f)
+        floor_plan = []
+        for l in floor:
+            line = list(l.strip())
+            floor_plan.append(line)
+        f.close()
+        self.assertEqual(count_neighbors2(0, 8 , floor_plan), 5)
+        print('test2')
+        self.assertEqual(count_neighbors2(1, 9 , floor_plan), 5)
+
+    def testMutate2(self):
+        print("Mutate2")
+        f = open('sample.txt','r')
+        self.assertEqual(model_seats2(f), 26)
+        f.close()
 if __name__ == "__main__":
     unittest.main()
